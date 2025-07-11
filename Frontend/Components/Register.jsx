@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 const Register = () => {
   const [user, setUser] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
   });
 
-  const handleSubmit = async(e) => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log(user);
-  await axios.post("http://localhost:5000/register",user)
-
-
+    try {
+      const res = await axios.post("http://localhost:4000/register", user);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -26,7 +29,7 @@ const Register = () => {
             placeholder="Name"
             className="p-3 bg-gray-700 rounded-md text-white placeholder-gray-400"
             onChange={(e) => {
-              setUser({ ...user, name: e.target.value });
+              setUser({ ...user, username: e.target.value });
             }}
             required
           />
@@ -51,7 +54,6 @@ const Register = () => {
           <button
             type="submit"
             className="p-3 bg-green-500 rounded-md text-white"
-           
           >
             Submit
           </button>

@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-} from "react-share";
+
 import ShareButton from "./ShareButton";
 const Dashboard = () => {
   const dummy = [
@@ -94,12 +87,11 @@ const Dashboard = () => {
               <div className="font-semibold text-gray-300">{data.phoneNo}</div>
               <div className="font-semibold text-gray-300">{data.address}</div>
               <div className="font-semibold text-gray-300">{data.notes}</div>
-              <ShareButton data={data}/>
+              <ShareButton data={data} />
             </div>
           );
         })}
       </div>
-      
     </div>
   );
 };
