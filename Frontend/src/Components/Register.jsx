@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { toast } from 'react-toastify';
 const Register = () => {
+  const notifyRegistered = () => toast.success("Successsfully Registered.");
+  const notifyExists =() => toast.error("User already exists");
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -13,7 +16,14 @@ const Register = () => {
     console.log(user);
     try {
       const res = await axios.post("http://localhost:4000/register", user);
-      console.log(res);
+      if (res.data === "exists") return notifyExists();
+      console.log("success");
+      setUser({
+        username: "",
+        email: "",
+        password: "",
+      });
+      notifyRegistered();
     } catch (err) {
       console.log(err);
     }
@@ -28,6 +38,7 @@ const Register = () => {
             type="name"
             placeholder="Name"
             className="p-3 bg-gray-700 rounded-md text-white placeholder-gray-400"
+            value={user.username}
             onChange={(e) => {
               setUser({ ...user, username: e.target.value });
             }}
@@ -37,6 +48,7 @@ const Register = () => {
             type="email"
             placeholder="Email"
             className="p-3 bg-gray-700 rounded-md text-white placeholder-gray-400"
+             value={user.email}
             onChange={(e) => {
               setUser({ ...user, email: e.target.value });
             }}
@@ -46,6 +58,7 @@ const Register = () => {
             type="password"
             className="p-3 bg-gray-700 rounded-md text-white placeholder-gray-400"
             placeholder="Password"
+             value={user.password}
             onChange={(e) => {
               setUser({ ...user, password: e.target.value });
             }}

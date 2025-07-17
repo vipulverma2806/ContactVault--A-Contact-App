@@ -6,7 +6,7 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true,
+
       trim: true,
     },
     email: {
@@ -20,12 +20,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    contacts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Contact",
-      },
-    ],
   },
   { timestamps: true }
 );
@@ -34,8 +28,8 @@ const User = mongoose.model("User", userSchema);
 
 const contactSchema = new Schema(
   {
-    user: {
-      type: Schema.Types.ObjectId,
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
@@ -60,7 +54,6 @@ const contactSchema = new Schema(
     },
     notes: {
       type: String,
-      
     },
   },
   { timestamps: true }
