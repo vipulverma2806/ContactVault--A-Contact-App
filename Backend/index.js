@@ -95,7 +95,7 @@ app.get("/getContacts", async (req, res) => {
     // console.log(decoded);
     // res.json(decoded.name);
     const contacts = await Contact.find({ userId: decoded.id }).sort({
-      createdAt: -1,
+      createdAt: 1,
     });
     res.json(contacts);
   } catch (err) {
@@ -114,4 +114,30 @@ app.post("/logout", async (req, res) => {
 //   const token = req.cookies.token;
 //   res.json(token);
 // });
+
+//-------------------------------delete--------
+app.delete("/deleteContact/:id", async(req,res)=>{
+  const id = req.params.id;
+  try{
+    const deleted = await Contact.findByIdAndDelete(id)
+    console.log(deleted)
+    res.json(deleted)
+  }catch(err)
+  {
+    console.log(err)
+  }
+})
+//---------------Edit---------------------------
+app.put("/editContact/:id", async(req,res)=>{
+  const id = req.params.id;
+  const contact = req.body;
+  try{
+    const updated = await Contact.findByIdAndUpdate(id,contact,{new:true})
+    console.log(updated)
+    res.json(updated)
+  }catch(err)
+  {
+    console.log(err)
+  }
+})
 app.listen("4000", () => console.log("server running on port 4000"));
