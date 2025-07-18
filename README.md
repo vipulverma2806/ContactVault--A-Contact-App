@@ -1,16 +1,16 @@
-# 📣 FeedBacker
+# 📣 ContactVault
 
-**FeedBacker** is a full-stack MERN+ application that enables students to submit anonymous or open feedback for their teachers. Admins get access to a dedicated dashboard to review all feedback entries and visualize data through insightful bar and pie charts.
+**ContactVault** is a full-stack MERN (MongoDB, Express.js, React, Node.js) application that provides users with a secure platform to manage their private contact lists.User data is protected and accessible only to authorized users. Users can register, log in, and perform CRUD (Create, Read, Update, Delete) operations on their contacts, which include fields for name, phone number, and email address etc..
 
 ---
 
 ## 🚀 Features
 
-- 📝 Students can share feedback easily.
-- 📋 Admin dashboard to review all feedback entries.
-- 📊 Visual feedback analytics using bar and pie charts.
+- 📝 Users can log in to their account using their credentials.
+- 📋 User dashboard to review all contact list.
 - ⚡ Fast UI built with Tailwind CSS and Vite.
 - 🔄 RESTful API using Express and MongoDB.
+- ✅ Users can add, view, update, and delete their contacts.
 
 ---
 
@@ -23,8 +23,8 @@
 - **Tailwind CSS**
 - **Vite** 
 - **Axios** 
-- **Chart.js** 
-- **react-chartjs-2** 
+- **react-icons** 
+- **react-toastify** 
 
 ### 🔶 Backend
 
@@ -34,6 +34,9 @@
 - **dotenv** 
 - **cors** 
 - **nodemon**
+- **bcryptjs**
+- **cookie-parser**
+- **jsonwebtoken**
 
 ---
 ## 🖼️ Screenshots
