@@ -1,22 +1,22 @@
-# 📣 ContactVault
+# ContactVault
 
 **ContactVault** is a full-stack MERN (MongoDB, Express.js, React, Node.js) application that provides users with a secure platform to manage their private contact lists.User data is protected and accessible only to authorized users. Users can register, log in, and perform CRUD (Create, Read, Update, Delete) operations on their contacts, which include fields for name, phone number, and email address etc..
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 📝 Users can log in to their account using their credentials.
-- 📋 User dashboard to review all contact list.
-- ⚡ Fast UI built with Tailwind CSS and Vite.
-- 🔄 RESTful API using Express and MongoDB.
-- ✅ Users can add, view, update, and delete their contacts.
+-  Users can log in to their account using their credentials.
+-  User dashboard to review all contact list.
+-  Fast UI built with Tailwind CSS and Vite.
+-  RESTful API using Express and MongoDB.
+-  Users can add, view, update, and delete their contacts.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
-### 🔷 Frontend
+###  Frontend
 
 - **React** 
 - **React Router DOM** 
@@ -26,7 +26,7 @@
 - **react-icons** 
 - **react-toastify** 
 
-### 🔶 Backend
+###  Backend
 
 - **Node.js**
 - **Express** 
@@ -39,7 +39,7 @@
 - **jsonwebtoken**
 
 ---
-## 🖼️ Screenshots
+##  Screenshots
 
 ### Register Form
 ![Form](./Frontend/public/screenshots/Register.png)
