@@ -30,8 +30,9 @@ const App = () => {
   return (
     <div className="">
       <Routes>
-        <Route path="/" element={<Login />}></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/" element={<Login />}></Route>
         <Route
           path="/Dashboard"
           element={<Dashboard />}

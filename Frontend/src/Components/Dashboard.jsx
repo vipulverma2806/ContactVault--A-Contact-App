@@ -35,7 +35,7 @@ const Dashboard = () => {
     try {
       const res = await axios.post("http://localhost:4000/logout");
       console.log(res);
-      navigate("/");
+      navigate("/login");
       notifyLogout();
     } catch (err) {
       console.log(err);
@@ -83,11 +83,11 @@ const Dashboard = () => {
     setContact({
       name: data.name,
       email: data.email,
-      phoneNo: data.phoneNo,
+      phoneNo: data.phone_no,
       address: data.address,
       notes: data.notes,
     });
-    setEditId(data._id);
+    setEditId(data.id);
     window.scrollTo({
       top: 0,
       behavior:'smooth'
@@ -197,13 +197,13 @@ const Dashboard = () => {
             <div key={i} className="bg-gray-800 p-10 rounded-xl">
               <h4 className="text-3xl font-bold text-white">{data.name}</h4>
               <div className="font-semibold text-gray-300">{data.email}</div>
-              <div className="font-semibold text-gray-300">{data.phoneNo}</div>
+              <div className="font-semibold text-gray-300">{data.phone_no}</div>
               <div className="font-semibold text-gray-300">{data.address}</div>
               <div className="font-semibold text-gray-300">{data.notes}</div>
               <div className="flex justify-between">
                 <ShareButton
                   data={data}
-                  deleteContact={() => deleteContact(data._id)}
+                  deleteContact={() => deleteContact(data.id)}
                   editContact={() => editContact(data)}
                 />
               </div>
