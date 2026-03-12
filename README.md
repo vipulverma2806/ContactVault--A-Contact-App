@@ -30,7 +30,8 @@
 
 - **Node.js**
 - **Express** 
-- **MongoDB** + **Mongoose** 
+- **MongoDB** + **Mongoose** (before migration)
+- **PostgreSQL** (After Migration)
 - **dotenv** 
 - **cors** 
 - **nodemon**
