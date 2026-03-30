@@ -41,7 +41,7 @@ app.post("/addContact", async (req, res) => {
     console.log(decoded);
     const { name, email, phoneNo, address, notes } = req.body;
     const resData = await pool.query(
-      "INSERT INTO contacts (name, email, phone_no, address, notes,userid) VALUES ($1,$2,$3,$4,$5,$6) ",
+      "INSERT INTO contacts (name, email, phoneNo, address, notes,userid) VALUES ($1,$2,$3,$4,$5,$6) ",
       [name, email, phoneNo, address, notes, decoded.id],
     );
     console.log(resData);
@@ -116,8 +116,8 @@ app.get("/getContacts", async (req, res) => {
       "SELECT * From contacts WHERE userID = $1",
       [decoded.id],
     );
-
-    res.json(contacts.rows);
+    console.log(contacts.rows)
+    res.json(contacts.rows.reverse());
   } catch (err) {
     console.log(err);
   }
@@ -153,11 +153,14 @@ app.delete("/deleteContact/:id", async (req, res) => {
 app.put("/editContact/:id", async (req, res) => {
   const id = req.params.id;
   const contact = req.body;
-  const {name,email,phoneNo,address,notes} = contact;
-  console.log(contact)
+  const { name, email, phoneNo, address, notes } = contact;
+  console.log(contact);
   try {
     // const updated = await Contact.findByIdAndUpdate(id, contact, { new: true });
-    const updated = await pool.query("UPDATE contacts SET name=$1, phone_no=$2, email=$3, address=$4, notes=$5 WHERE id=$6",[name,phoneNo,email,address,notes,id])
+    const updated = await pool.query(
+      "UPDATE contacts SET name=$1, phoneNo=$2, email=$3, address=$4, notes=$5 WHERE id=$6",
+      [name, phoneNo, email, address, notes, id],
+    );
     console.log(updated);
     res.json(updated);
   } catch (err) {
